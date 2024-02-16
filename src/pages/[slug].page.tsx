@@ -21,14 +21,14 @@ const Page = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       {blogPost.seoFields && <SeoFields {...blogPost.seoFields} />}
-      <Container>
+      <Container className="max-w-7xl">
         <ArticleHero article={blogPost} isFeatured={props.isFeatured} isReversedLayout={true} />
       </Container>
-      <Container className="mt-8 max-w-4xl">
+      <Container className="mt-8 max-w-7xl">
         <ArticleContent article={blogPost} />
       </Container>
-      {relatedPosts && (
-        <Container className="mt-8 max-w-5xl">
+      {relatedPosts && relatedPosts.length > 0 && (
+        <Container className="mt-8 max-w-7xl">
           <h2 className="mb-4 md:mb-6">{t('article.relatedArticles')}</h2>
           <ArticleTileGrid className="md:grid-cols-2" articles={relatedPosts} />
         </Container>
